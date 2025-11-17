@@ -1016,129 +1016,6 @@
             cursor: pointer;
             transition: var(--transition);
         }
-        
-        /* Styles pour le carrousel d'images */
-        .image-carousel {
-            position: relative;
-            width: 100%;
-            max-width: 350px;
-        }
-
-        .main-image-container {
-            width: 100%;
-            height: 350px;
-            overflow: hidden;
-            border-radius: var(--border-radius);
-            margin-bottom: 15px;
-            position: relative;
-        }
-
-        .main-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .carousel-thumbnails {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .thumbnail {
-            width: 60px;
-            height: 60px;
-            border-radius: 6px;
-            overflow: hidden;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: var(--transition);
-            opacity: 0.7;
-        }
-
-        .thumbnail:hover {
-            opacity: 1;
-            transform: scale(1.05);
-        }
-
-        .thumbnail.active {
-            border-color: var(--accent-color);
-            opacity: 1;
-        }
-
-        .thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-            z-index: 10;
-        }
-
-        .carousel-btn:hover {
-            background: var(--white);
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .carousel-prev {
-            left: 10px;
-        }
-
-        .carousel-next {
-            right: 10px;
-        }
-
-        .carousel-btn i {
-            color: var(--primary-color);
-            font-size: 1rem;
-        }
-
-        /* Indicateur du nombre d'images */
-        .image-counter {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            z-index: 5;
-        }
-
-        /* Responsive pour le carrousel */
-        @media (max-width: 768px) {
-            .main-image-container {
-                height: 300px;
-            }
-            
-            .thumbnail {
-                width: 50px;
-                height: 50px;
-            }
-            
-            .carousel-btn {
-                width: 35px;
-                height: 35px;
-            }
-        }
 
         .modal-follow i:hover {
             color: var(--primary-color);
@@ -1267,38 +1144,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Styles pour les filtres actifs */
-        .active-filters {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .active-filter-tag {
-            background-color: var(--accent-color);
-            color: var(--white);
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .active-filter-tag i {
-            cursor: pointer;
-            font-size: 0.7rem;
-        }
-
-        .no-results {
-            text-align: center;
-            padding: 30px;
-            grid-column: 1 / -1;
-            font-size: 1.1rem;
-            color: var(--dark-gray);
-        }
-
         /* RESPONSIVE DESIGN */
         @media (max-width: 1024px) {
             .shop-container {
@@ -1359,42 +1204,9 @@
         }
 
         @media (max-width: 480px) {
-            /* CORRECTION: Ajustement de la grille pour les mobiles */
             .products-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 10px;
-                padding: 0 10px; /* Ajout de padding pour éviter que les cartes ne touchent les bords */
-            }
-            
-            .product-card {
-                width: 100%; /* S'assurer que les cartes ne dépassent pas */
-            }
-            
-            .product-image-container {
-                height: 200px; /* Réduire la hauteur des images sur mobile */
-            }
-            
-            .product-details {
-                padding: 10px; /* Réduire le padding pour économiser de l'espace */
-            }
-            
-            .name {
-                font-size: 0.9rem; /* Réduire la taille du texte */
-            }
-            
-            .brand {
-                font-size: 0.8rem;
-                margin-bottom: 8px;
-            }
-            
-            .price {
-                font-size: 1.1rem;
-            }
-            
-            .command-button {
-                padding: 10px 15px;
-                font-size: 0.8rem;
-                margin: 0 10px 10px;
             }
             
             .brand-categories, .gender-categories {
@@ -1512,66 +1324,18 @@
                 <button class="close-filters" id="closeFilters"><i class="fas fa-times"></i></button>
             </div>
             <div class="mobile-filters-content">
-                <div class="filter-section">
-                    <div class="filter-title">Filtrer par prix</div>
-                    <div class="price-filter">
-                        <div class="price-range">
-                            <input type="number" class="price-input mobile-price-min" placeholder="Min" value="0">
-                            <span class="price-separator">-</span>
-                            <input type="number" class="price-input mobile-price-max" placeholder="Max" value="100000">
-                        </div>
-                    </div>
-                </div>
-                <div class="filter-section">
-                    <div class="filter-title">Filtrer par marque</div>
-                    <div class="brand-filter" id="mobile-brand-filters">
-                        <!-- Les filtres de marque seront générés dynamiquement ici -->
-                    </div>
-                </div>
-                <div class="filter-section">
-                    <div class="filter-title">Filtrer par genre</div>
-                    <div class="gender-filter" id="mobile-gender-filters">
-                        <!-- Les filtres de genre seront générés dynamiquement ici -->
-                    </div>
-                </div>
+                <div class="filter-section"><div class="filter-title">Filtrer par prix</div><div class="price-filter"><div class="price-range"><input type="number" class="price-input" placeholder="Min" value="0"><span class="price-separator">-</span><input type="number" class="price-input" placeholder="Max" value="100000"></div></div></div>
+                <div class="filter-section"><div class="filter-title">Filtrer par marque</div><div class="brand-filter"><label class="filter-checkbox"><input type="checkbox" name="brand" value="rolex"><span>Rolex</span></label><label class="filter-checkbox"><input type="checkbox" name="brand" value="patek"><span>Patek Philippe</span></label></div></div>
+                <div class="filter-section"><div class="filter-title">Filtrer par genre</div><div class="gender-filter"><label class="filter-checkbox"><input type="checkbox" name="gender" value="men"><span>Homme</span></label><label class="filter-checkbox"><input type="checkbox" name="gender" value="women"><span>Femme</span></label></div></div>
             </div>
-            <div class="mobile-filters-footer">
-                <button class="mobile-filter-button mobile-filter-reset" id="mobileFilterReset">RÉINITIALISER</button>
-                <button class="mobile-filter-button mobile-filter-apply" id="mobileFilterApply">APPLIQUER</button>
-            </div>
+            <div class="mobile-filters-footer"><button class="mobile-filter-button mobile-filter-reset" id="mobileFilterReset">RÉINITIALISER</button><button class="mobile-filter-button mobile-filter-apply" id="mobileFilterApply">APPLIQUER</button></div>
         </div>
         
         <div class="shop-container">
             <aside class="shop-filters">
-                <div class="filter-section">
-                    <div class="filter-title">Filtrer par prix <i class="fas fa-chevron-down"></i></div>
-                    <div class="price-filter">
-                        <div class="price-range">
-                            <input type="number" class="price-input desktop-price-min" placeholder="Min" value="0">
-                            <span class="price-separator">-</span>
-                            <input type="number" class="price-input desktop-price-max" placeholder="Max" value="100000">
-                        </div>
-                        <button class="filter-button" id="applyPriceFilter">Appliquer</button>
-                    </div>
-                </div>
-                <div class="filter-section">
-                    <div class="filter-title">Filtrer par marque <i class="fas fa-chevron-down"></i></div>
-                    <div class="brand-filter" id="desktop-brand-filters">
-                        <!-- Les filtres de marque seront générés dynamiquement ici -->
-                    </div>
-                </div>
-                <div class="filter-section">
-                    <div class="filter-title">Filtrer par genre <i class="fas fa-chevron-down"></i></div>
-                    <div class="gender-filter" id="desktop-gender-filters">
-                        <!-- Les filtres de genre seront générés dynamiquement ici -->
-                    </div>
-                </div>
-                <div class="filter-section">
-                    <div class="active-filters" id="activeFilters">
-                        <!-- Les filtres actifs seront affichés ici -->
-                    </div>
-                    <button class="filter-button" id="resetFilters">Réinitialiser tous les filtres</button>
-                </div>
+                <div class="filter-section"><div class="filter-title">Filtrer par prix <i class="fas fa-chevron-down"></i></div><div class="price-filter"><div class="price-range"><input type="number" class="price-input" placeholder="Min" value="0"><span class="price-separator">-</span><input type="number" class="price-input" placeholder="Max" value="100000"></div></div></div>
+                <div class="filter-section"><div class="filter-title">Filtrer par marque <i class="fas fa-chevron-down"></i></div><div class="brand-filter"><label class="filter-checkbox"><input type="checkbox" name="brand" value="rolex"><span>Rolex</span></label></div></div>
+                <div class="filter-section"><div class="filter-title">Filtrer par genre <i class="fas fa-chevron-down"></i></div><div class="gender-filter"><label class="filter-checkbox"><input type="checkbox" name="gender" value="men"><span>Homme</span></label></div></div>
             </aside>
             
             <div class="shop-content">
@@ -1581,7 +1345,7 @@
                 </div>
                 
                 <main class="products-grid" id="products-grid">
-                    <!-- Les produits seront chargés ici dynamiquement depuis Firebase ou depuis les données locales -->
+                    <!-- Les produits seront chargés ici dynamiquement depuis Firebase -->
                     <div class="spinner"></div>
                 </main>
             </div>
@@ -1594,17 +1358,7 @@
             <button class="close-modal-btn"><i class="fa-solid fa-xmark"></i></button>
             <div class="modal-body">
                 <div class="modal-image-col">
-                    <!-- Carrousel d'images -->
-                    <div class="image-carousel">
-                        <div class="main-image-container">
-                            <img id="modal-product-image" src="https://via.placeholder.com/350x350?text=Produit" alt="Montre en gros plan">
-                        </div>
-                        <div class="carousel-thumbnails" id="carousel-thumbnails">
-                            <!-- Les miniatures seront ajoutées ici dynamiquement -->
-                        </div>
-                        <button class="carousel-btn carousel-prev"><i class="fa-solid fa-chevron-left"></i></button>
-                        <button class="carousel-btn carousel-next"><i class="fa-solid fa-chevron-right"></i></button>
-                    </div>
+                    <img id="modal-product-image" src="https://via.placeholder.com/350x350?text=Produit" alt="Montre en gros plan">
                     <button class="view-details-btn">VIEW DETAILS</button>
                 </div>
                 <div class="modal-details-col">
@@ -1645,10 +1399,11 @@
     <script src="navbar.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-storage-compat.js"></script>
 
     <script>
         // === CONFIGURATION FIREBASE ===
+        // REMPLACEZ CECI AVEC VOS PROPRES CLES DE CONFIGURATION FIREBASE
+        // DOIT ÊTRE IDENTIQUE À CELLE DU PANNEAU D'ADMINISTRATION
         const firebaseConfig = {
             apiKey: "AIzaSyBB8zPrG4MjAqBm1SOxIFQdWtiCmz_v92s",
             authDomain: "luxur-6b128.firebaseapp.com",
@@ -1658,10 +1413,11 @@
             appId: "1:900453735371:web:e32188ac6ea261084c344e"
         };
 
+        // ===========================
+
         // Initialiser Firebase
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
-        const storage = firebase.storage();
         const productsRef = db.collection('products');
 
         // Éléments du DOM
@@ -1669,24 +1425,10 @@
         const quickViewModal = document.getElementById('quick-view-modal');
         const currentCountSpan = document.getElementById('current-count');
         const totalCountSpan = document.getElementById('total-count');
-        const activeFiltersContainer = document.getElementById('activeFilters');
 
         // Variables globales pour le panier et la wishlist
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-        
-        // Variables pour les filtres
-        let allProducts = [];
-        let filteredProducts = [];
-        let currentFilters = {
-            priceMin: 0,
-            priceMax: 100000,
-            brands: [],
-            genders: []
-        };
-        
-        // AJOUT: Variable pour stocker l'ID du produit actuel dans la vue rapide
-        let currentProductId = null;
 
         // === FONCTIONS POUR LA GESTION DES PRODUITS ===
         
@@ -1703,359 +1445,55 @@
             }, 3000);
         }
 
-        // === DÉBUT DE LA CORRECTION : FONCTION DE CHARGEMENT HYBRIDE ===
-
-        // Fonction pour charger les produits de test locaux
-        function loadLocalProducts() {
-            console.log("Chargement des produits de test locaux...");
-            allProducts = [
-                { id: "1", name: "Montre Rolex Submariner", brand: "Rolex", category: "Homme", price: 15000, description: "Montre de luxe emblématique pour plongeur.", image: "https://via.placeholder.com/280x280?text=Rolex+Submariner", images: ["https://via.placeholder.com/350x350?text=Rolex+1", "https://via.placeholder.com/350x350?text=Rolex+2"] },
-                { id: "2", name: "Montre Omega Speedmaster", brand: "Omega", category: "Homme", price: 8500, description: "La montre de la Lune, un classique intemporel.", image: "https://via.placeholder.com/280x280?text=Omega+Speedmaster", images: ["https://via.placeholder.com/350x350?text=Omega+1", "https://via.placeholder.com/350x350?text=Omega+2"] },
-                { id: "3", name: "Montre Cartier Tank", brand: "Cartier", category: "Femme", price: 12000, description: "Élégance et raffinement à la française.", image: "https://via.placeholder.com/280x280?text=Cartier+Tank", images: ["https://via.placeholder.com/350x350?text=Cartier+1", "https://via.placeholder.com/350x350?text=Cartier+2"] },
-                { id: "4", name: "Montre Tag Heuer Carrera", brand: "Tag Heuer", category: "Homme", price: 6500, description: "Inspiration sportive et design élégant.", image: "https://via.placeholder.com/280x280?text=Tag+Heuer+Carrera", images: ["https://via.placeholder.com/350x350?text=Tag+1", "https://via.placeholder.com/350x350?text=Tag+2"] },
-                { id: "5", name: "Montre Breitling Navitimer", brand: "Breitling", category: "Homme", price: 9500, description: "L'instrument de bord pour les passionnés d'aviation.", image: "https://via.placeholder.com/280x280?text=Breitling+Navitimer", images: ["https://via.placeholder.com/350x350?text=Breitling+1", "https://via.placeholder.com/350x350?text=Breitling+2"] },
-                { id: "6", name: "Montre Longines PrimaLuna", brand: "Longines", category: "Femme", price: 4200, description: "Une montre délicate et brillante.", image: "https://via.placeholder.com/280x280?text=Longines+PrimaLuna", images: ["https://via.placeholder.com/350x350?text=Longines+1", "https://via.placeholder.com/350x350?text=Longines+2"] },
-                { id: "7", name: "Montre Patek Philippe Nautilus", brand: "Patek Philippe", category: "Homme", price: 35000, description: "Une icône de l'horlogerie de luxe.", image: "https://via.placeholder.com/280x280?text=Patek+Nautilus", images: ["https://via.placeholder.com/350x350?text=Patek+1", "https://via.placeholder.com/350x350?text=Patek+2"] },
-                { id: "8", name: "Montre Audemars Piguet Royal Oak", brand: "Audemars Piguet", category: "Homme", price: 28000, description: "Design audacieux et craftsmanship exceptionnel.", image: "https://via.placeholder.com/280x280?text=AP+Royal+Oak", images: ["https://via.placeholder.com/350x350?text=AP+1", "https://via.placeholder.com/350x350?text=AP+2"] },
-                { id: "9", name: "Montre Seiko Presage", brand: "Seiko", category: "Homme", price: 550, description: "La perfection japonaise accessible.", image: "https://via.placeholder.com/280x280?text=Seiko+Presage", images: ["https://via.placeholder.com/350x350?text=Seiko+1", "https://via.placeholder.com/350x350?text=Seiko+2"] }
-            ];
-            console.log(`${allProducts.length} produits locaux chargés.`);
-            finalizeProductLoading();
-        }
-
-        // Fonction principale de chargement, avec fallback
-async function loadProductsFromFirebase() {
-    productsGrid.innerHTML = '<div class="spinner"></div>';
-    console.log("Chargement des produits de démonstration...");
-    
-    // Utiliser directement les produits locaux pour tester
-    setTimeout(() => {
-        loadLocalProducts();
-    }, 1000);
-}
-
+        // Fonction pour charger les produits depuis Firebase
+        async function loadProductsFromFirebase() {
+            productsGrid.innerHTML = '<div class="spinner"></div>';
+            
             try {
                 const snapshot = await productsRef.orderBy('createdAt', 'desc').get();
-                clearTimeout(firebaseTimeout); // Annuler le timeout si la réponse arrive à temps
-
+                productsGrid.innerHTML = '';
+                
                 if (snapshot.empty) {
-                    console.log("La collection 'products' est vide sur Firebase. Utilisation des données locales.");
-                    showNotification("Aucun produit sur Firebase, affichage de la démo.", 'info');
-                    loadLocalProducts();
-                    return;
-                }
-
-                console.log(`Connexion à Firebase réussie. ${snapshot.size} produits trouvés.`);
-                allProducts = [];
-                snapshot.forEach(doc => {
-                    const product = { id: doc.id, ...doc.data() };
-                    // Validation simple des données
-                    if (product.name && product.price && product.brand) {
-                        allProducts.push(product);
-                    }
-                });
-                
-                if(allProducts.length === 0) {
-                    console.warn("Les produits de Firebase ne sont pas valides. Utilisation des données locales.");
-                    showNotification("Les données de Firebase sont invalides, affichage de la démo.", 'warning');
-                    loadLocalProducts();
+                    productsGrid.innerHTML = '<p style="text-align: center; width: 100%; grid-column: 1/-1;">Aucun produit trouvé pour le moment.</p>';
+                    currentCountSpan.textContent = '0';
+                    totalCountSpan.textContent = '0';
                 } else {
-                    finalizeProductLoading();
+                    let count = 0;
+                    snapshot.forEach(doc => {
+                        const product = doc.data();
+                        count++;
+                        const formattedPrice = product.price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                        
+                        const productCard = document.createElement('div');
+                        productCard.className = 'product-card';
+                        productCard.setAttribute('data-product-id', doc.id);
+                        productCard.innerHTML = `
+                            <div class="product-image-container">
+                                <img src="${product.image || 'https://via.placeholder.com/280x280?text=Image+Manquante'}" alt="${product.name}">
+                                <div class="product-actions">
+                                    <span class="action-icon quickview-icon" data-action="quickview" data-product-id="${doc.id}"><i class="fa-solid fa-eye"></i></span>
+                                    <span class="action-icon wishlist-icon" data-action="wishlist" data-product-id="${doc.id}"><i class="fa-regular fa-heart"></i></span>
+                                </div>
+                            </div>
+                            <div class="product-details">
+                                <p class="name">${product.name}</p>
+                                <p class="brand">${product.brand} - ${product.category}</p>
+                                <p class="price">${formattedPrice} <span class="currency">د.ج</span></p>
+                            </div>
+                            <button class="command-button add-to-cart" data-product-id="${doc.id}" data-product-name="${product.name}" data-product-price="${product.price}" data-product-image="${product.image || 'https://via.placeholder.com/280x280?text=Image+Manquante'}">AJOUTER AU PANIER</button>
+                        `;
+                        productsGrid.appendChild(productCard);
+                    });
+                    currentCountSpan.textContent = count;
+                    totalCountSpan.textContent = count;
+                    initializeProductEventListeners();
+                    updateWishlistIcons();
                 }
-
             } catch (error) {
-                clearTimeout(firebaseTimeout);
-                console.error("Erreur lors du chargement depuis Firebase:", error);
-                showNotification("Erreur de connexion à Firebase, affichage de la démo.", 'error');
-                loadLocalProducts();
+                console.error("Erreur de chargement des produits:", error);
+                productsGrid.innerHTML = '<p style="text-align: center; width: 100%; grid-column: 1/-1;">Erreur lors du chargement des produits.</p>';
+                showNotification('Erreur lors du chargement des produits', 'error');
             }
-        
-        
-// FONCTION MANQUANTE - À AJOUTER DANS VOTRE CODE
-function addToCart(e) {
-    const button = e.currentTarget;
-    const productId = button.getAttribute('data-product-id');
-    const productName = button.getAttribute('data-product-name');
-    const productPrice = parseFloat(button.getAttribute('data-product-price'));
-    const productImage = button.getAttribute('data-product-image');
-    
-    addToCartFunction(productId, productName, productPrice, productImage);
-    showNotification('Produit ajouté au panier');
-}
-
-        // === FIN DE LA CORRECTION ===
-
-        // Fonction pour extraire les marques et catégories uniques et générer les filtres
-        function populateFilters() {
-            // Extraire les marques uniques
-            const brands = [...new Set(allProducts.map(product => product.brand))].filter(Boolean);
-            
-            // Extraire les catégories uniques
-            const categories = [...new Set(allProducts.map(product => product.category))].filter(Boolean);
-            
-            // Générer les filtres de marque pour desktop
-            const desktopBrandFilters = document.getElementById('desktop-brand-filters');
-            desktopBrandFilters.innerHTML = '';
-            
-            brands.forEach(brand => {
-                const brandValue = brand.toLowerCase().replace(/\s+/g, '-');
-                const checkbox = document.createElement('label');
-                checkbox.className = 'filter-checkbox';
-                checkbox.innerHTML = `
-                    <input type="checkbox" name="brand" value="${brandValue}">
-                    <span>${brand}</span>
-                `;
-                desktopBrandFilters.appendChild(checkbox);
-            });
-            
-            // Générer les filtres de marque pour mobile
-            const mobileBrandFilters = document.getElementById('mobile-brand-filters');
-            mobileBrandFilters.innerHTML = '';
-            
-            brands.forEach(brand => {
-                const brandValue = brand.toLowerCase().replace(/\s+/g, '-');
-                const checkbox = document.createElement('label');
-                checkbox.className = 'filter-checkbox';
-                checkbox.innerHTML = `
-                    <input type="checkbox" name="brand" value="${brandValue}">
-                    <span>${brand}</span>
-                `;
-                mobileBrandFilters.appendChild(checkbox);
-            });
-            
-            // Générer les filtres de catégorie pour desktop
-            const desktopGenderFilters = document.getElementById('desktop-gender-filters');
-            desktopGenderFilters.innerHTML = '';
-            
-            categories.forEach(category => {
-                const categoryValue = category.toLowerCase().replace(/\s+/g, '-');
-                const checkbox = document.createElement('label');
-                checkbox.className = 'filter-checkbox';
-                checkbox.innerHTML = `
-                    <input type="checkbox" name="gender" value="${categoryValue}">
-                    <span>${category}</span>
-                `;
-                desktopGenderFilters.appendChild(checkbox);
-            });
-            
-            // Générer les filtres de catégorie pour mobile
-            const mobileGenderFilters = document.getElementById('mobile-gender-filters');
-            mobileGenderFilters.innerHTML = '';
-            
-            categories.forEach(category => {
-                const categoryValue = category.toLowerCase().replace(/\s+/g, '-');
-                const checkbox = document.createElement('label');
-                checkbox.className = 'filter-checkbox';
-                checkbox.innerHTML = `
-                    <input type="checkbox" name="gender" value="${categoryValue}">
-                    <span>${category}</span>
-                `;
-                mobileGenderFilters.appendChild(checkbox);
-            });
-            
-            // Ajouter les écouteurs d'événements pour les nouveaux filtres
-            addFilterEventListeners();
-        }
-
-        // Fonction pour ajouter les écouteurs d'événements pour les filtres
-        function addFilterEventListeners() {
-            // Écouteurs pour les filtres desktop (marques)
-            document.querySelectorAll('.shop-filters input[name="brand"]').forEach(checkbox => {
-                checkbox.addEventListener('change', function() {
-                    if (this.checked) {
-                        if (!currentFilters.brands.includes(this.value)) {
-                            currentFilters.brands.push(this.value);
-                        }
-                    } else {
-                        currentFilters.brands = currentFilters.brands.filter(brand => brand !== this.value);
-                    }
-                    applyFilters();
-                });
-            });
-            
-            // Écouteurs pour les filtres desktop (genres)
-            document.querySelectorAll('.shop-filters input[name="gender"]').forEach(checkbox => {
-                checkbox.addEventListener('change', function() {
-                    if (this.checked) {
-                        if (!currentFilters.genders.includes(this.value)) {
-                            currentFilters.genders.push(this.value);
-                        }
-                    } else {
-                        currentFilters.genders = currentFilters.genders.filter(gender => gender !== this.value);
-                    }
-                    applyFilters();
-                });
-            });
-        }
-
-        // Fonction pour afficher les produits filtrés
-        function displayProducts(products) {
-            productsGrid.innerHTML = '';
-            
-            if (products.length === 0) {
-                productsGrid.innerHTML = '<div class="no-results">Aucun produit ne correspond à vos critères de filtrage.</div>';
-                currentCountSpan.textContent = '0';
-                totalCountSpan.textContent = allProducts.length;
-                return;
-            }
-            
-            products.forEach(product => {
-                const formattedPrice = product.price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                
-                // CORRECTION: Gérer les produits avec une seule image ou plusieurs images
-                let productImage;
-                if (product.images && product.images.length > 0) {
-                    productImage = product.images[0];
-                } else if (product.image) {
-                    productImage = product.image;
-                } else {
-                    productImage = 'https://via.placeholder.com/280x280?text=Image+Manquante';
-                }
-                
-                const productCard = document.createElement('div');
-                productCard.className = 'product-card';
-                productCard.setAttribute('data-product-id', product.id);
-                productCard.innerHTML = `
-                    <div class="product-image-container">
-                        <img src="${productImage}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/280x280?text=Image+Manquante'">
-                        <div class="product-actions">
-                            <span class="action-icon quickview-icon" data-action="quickview" data-product-id="${product.id}"><i class="fa-solid fa-eye"></i></span>
-                            <span class="action-icon wishlist-icon" data-action="wishlist" data-product-id="${product.id}"><i class="fa-regular fa-heart"></i></span>
-                        </div>
-                    </div>
-                    <div class="product-details">
-                        <p class="name">${product.name}</p>
-                        <p class="brand">${product.brand} - ${product.category}</p>
-                        <p class="price">${formattedPrice} <span class="currency">د.ج</span></p>
-                    </div>
-                    <button class="command-button add-to-cart" data-product-id="${product.id}" data-product-name="${product.name}" data-product-price="${product.price}" data-product-image="${productImage}">AJOUTER AU PANIER</button>
-                `;
-                productsGrid.appendChild(productCard);
-            });
-            
-            currentCountSpan.textContent = products.length;
-            totalCountSpan.textContent = allProducts.length;
-            
-            initializeProductEventListeners();
-            updateWishlistIcons();
-        }
-
-        // Fonction pour appliquer les filtres
-        function applyFilters() {
-            filteredProducts = allProducts.filter(product => {
-                // Filtrer par prix
-                if (product.price < currentFilters.priceMin || product.price > currentFilters.priceMax) {
-                    return false;
-                }
-                
-                // Filtrer par marque
-                if (currentFilters.brands.length > 0) {
-                    const productBrandValue = product.brand.toLowerCase().replace(/\s+/g, '-');
-                    if (!currentFilters.brands.includes(productBrandValue)) {
-                        return false;
-                    }
-                }
-                
-                // Filtrer par genre
-                if (currentFilters.genders.length > 0) {
-                    const productCategoryValue = product.category.toLowerCase().replace(/\s+/g, '-');
-                    if (!currentFilters.genders.includes(productCategoryValue)) {
-                        return false;
-                    }
-                }
-                
-                return true;
-            });
-            
-            displayProducts(filteredProducts);
-            updateActiveFilters();
-        }
-
-        // Fonction pour mettre à jour l'affichage des filtres actifs
-        function updateActiveFilters() {
-            activeFiltersContainer.innerHTML = '';
-            
-            // Ajouter les filtres de prix
-            if (currentFilters.priceMin > 0 || currentFilters.priceMax < 100000) {
-                const priceFilter = document.createElement('div');
-                priceFilter.className = 'active-filter-tag';
-                priceFilter.innerHTML = `Prix: ${currentFilters.priceMin} - ${currentFilters.priceMax} <i class="fas fa-times" data-filter-type="price"></i>`;
-                activeFiltersContainer.appendChild(priceFilter);
-            }
-            
-            // Ajouter les filtres de marque
-            currentFilters.brands.forEach(brandValue => {
-                const brandFilter = document.createElement('div');
-                brandFilter.className = 'active-filter-tag';
-                // Trouver le nom de la marque correspondant à la valeur
-                const brandName = allProducts.find(p => p.brand.toLowerCase().replace(/\s+/g, '-') === brandValue)?.brand || brandValue;
-                brandFilter.innerHTML = `${brandName} <i class="fas fa-times" data-filter-type="brand" data-value="${brandValue}"></i>`;
-                activeFiltersContainer.appendChild(brandFilter);
-            });
-            
-            // Ajouter les filtres de genre
-            currentFilters.genders.forEach(categoryValue => {
-                const genderFilter = document.createElement('div');
-                genderFilter.className = 'active-filter-tag';
-                // Trouver le nom de la catégorie correspondant à la valeur
-                const categoryName = allProducts.find(p => p.category.toLowerCase().replace(/\s+/g, '-') === categoryValue)?.category || categoryValue;
-                genderFilter.innerHTML = `${categoryName} <i class="fas fa-times" data-filter-type="gender" data-value="${categoryValue}"></i>`;
-                activeFiltersContainer.appendChild(genderFilter);
-            });
-            
-            // Ajouter les écouteurs d'événements pour les boutons de suppression de filtre
-            document.querySelectorAll('.active-filter-tag i').forEach(icon => {
-                icon.addEventListener('click', removeFilter);
-            });
-        }
-
-        // Fonction pour supprimer un filtre
-        function removeFilter(e) {
-            const filterType = e.target.getAttribute('data-filter-type');
-            
-            if (filterType === 'price') {
-                currentFilters.priceMin = 0;
-                currentFilters.priceMax = 100000;
-                document.querySelector('.desktop-price-min').value = 0;
-                document.querySelector('.desktop-price-max').value = 100000;
-                document.querySelector('.mobile-price-min').value = 0;
-                document.querySelector('.mobile-price-max').value = 100000;
-            } else if (filterType === 'brand') {
-                const value = e.target.getAttribute('data-value');
-                currentFilters.brands = currentFilters.brands.filter(brand => brand !== value);
-                document.querySelector(`input[name="brand"][value="${value}"]`).checked = false;
-            } else if (filterType === 'gender') {
-                const value = e.target.getAttribute('data-value');
-                currentFilters.genders = currentFilters.genders.filter(gender => gender !== value);
-                document.querySelector(`input[name="gender"][value="${value}"]`).checked = false;
-            }
-            
-            applyFilters();
-        }
-
-        // Fonction pour réinitialiser tous les filtres
-        function resetAllFilters() {
-            currentFilters = {
-                priceMin: 0,
-                priceMax: 100000,
-                brands: [],
-                genders: []
-            };
-            
-            // Réinitialiser les inputs
-            document.querySelectorAll('.price-input').forEach(input => {
-                if (input.classList.contains('desktop-price-min') || input.classList.contains('mobile-price-min')) {
-                    input.value = 0;
-                } else {
-                    input.value = 100000;
-                }
-            });
-            
-            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-                checkbox.checked = false;
-            });
-            
-            applyFilters();
         }
 
         // Fonction pour initialiser les écouteurs d'événements pour les produits
@@ -2066,18 +1504,9 @@ function addToCart(e) {
             });
             
             // Écouteurs pour les boutons d'ajout au panier
-// Écouteurs pour les boutons d'ajout au panier
-document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', function(e) {
-        const productId = this.getAttribute('data-product-id');
-        const productName = this.getAttribute('data-product-name');
-        const productPrice = parseFloat(this.getAttribute('data-product-price'));
-        const productImage = this.getAttribute('data-product-image');
-        
-        addToCartFunction(productId, productName, productPrice, productImage);
-        showNotification('Produit ajouté au panier');
-    });
-});
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', addToCart);
+            });
             
             // Écouteurs pour les icônes quickview
             document.querySelectorAll('.quickview-icon').forEach(icon => {
@@ -2094,37 +1523,14 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
         // Fonction pour ouvrir le modal quickview
         async function openQuickViewModal(productId) {
             try {
-                // Chercher le produit dans la liste locale (allProducts) au lieu de faire un nouvel appel à Firebase
-                const product = allProducts.find(p => p.id === productId);
-
-                if (product) {
+                const doc = await productsRef.doc(productId).get();
+                if (doc.exists) {
+                    const product = doc.data();
                     document.getElementById('modal-product-name').textContent = product.name;
                     document.getElementById('modal-product-price').textContent = product.price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    document.getElementById('modal-product-image').src = product.image || 'https://via.placeholder.com/350x350?text=Image+Manquante';
                     document.getElementById('modal-product-category').textContent = `${product.brand} - ${product.category}`;
                     document.getElementById('modal-product-description').textContent = product.description || 'Aucune description disponible.';
-                    
-                    // CORRECTION: Gérer les produits avec une seule image ou plusieurs images
-                    let productImages;
-                    if (product.images && product.images.length > 0) {
-                        productImages = product.images;
-                    } else if (product.image) {
-                        productImages = [product.image];
-                    } else {
-                        productImages = ['https://via.placeholder.com/350x350?text=Image+Manquante'];
-                    }
-                    
-                    // Stocker l'ID du produit actuel et les données complètes
-                    currentProductId = productId;
-                    
-                    // Stocker temporairement le produit pour la redirection
-                    window.currentQuickViewProduct = {
-                        id: productId,
-                        ...product
-                    };
-                    
-                    // Afficher le carrousel d'images
-                    setupImageCarousel(productImages, productId);
-                    
                     quickViewModal.classList.add('active');
                     document.body.style.overflow = 'hidden';
                 } else {
@@ -2133,123 +1539,6 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
             } catch (error) {
                 console.error('Erreur lors de la récupération du produit:', error);
                 showNotification('Erreur lors de l\'affichage du produit', 'error');
-            }
-        }
-
-        // Fonction pour configurer le carrousel d'images
-        function setupImageCarousel(images, productId) {
-            const mainImage = document.getElementById('modal-product-image');
-            const thumbnailsContainer = document.getElementById('carousel-thumbnails');
-            const prevBtn = document.querySelector('.carousel-prev');
-            const nextBtn = document.querySelector('.carousel-next');
-            
-            // Vider les miniatures existantes
-            thumbnailsContainer.innerHTML = '';
-            
-            // Si pas d'images, afficher une image par défaut
-            if (!images || images.length === 0) {
-                mainImage.src = 'https://via.placeholder.com/350x350?text=Image+Manquante';
-                thumbnailsContainer.innerHTML = '<div class="no-images">Aucune image disponible</div>';
-                prevBtn.style.display = 'none';
-                nextBtn.style.display = 'none';
-                return;
-            }
-            
-            let currentImageIndex = 0;
-            
-            // Afficher la première image
-            mainImage.src = images[0];
-            
-            // Créer les miniatures
-            images.forEach((image, index) => {
-                const thumbnail = document.createElement('div');
-                thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
-                thumbnail.innerHTML = `<img src="${image}" alt="Miniature ${index + 1}" onerror="this.src='https://via.placeholder.com/60x60?text=Error'">`;
-                
-                thumbnail.addEventListener('click', () => {
-                    // Mettre à jour l'image principale
-                    mainImage.src = image;
-                    currentImageIndex = index;
-                    
-                    // Mettre à jour les miniatures actives
-                    document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
-                    thumbnail.classList.add('active');
-                });
-                
-                thumbnailsContainer.appendChild(thumbnail);
-            });
-            
-            // Gérer le bouton précédent
-            prevBtn.onclick = () => {
-                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-                updateCarousel();
-            };
-            
-            // Gérer le bouton suivant
-            nextBtn.onclick = () => {
-                currentImageIndex = (currentImageIndex + 1) % images.length;
-                updateCarousel();
-            };
-            
-            // Fonction pour mettre à jour le carrousel
-            function updateCarousel() {
-                mainImage.src = images[currentImageIndex];
-                
-                // Mettre à jour les miniatures actives
-                document.querySelectorAll('.thumbnail').forEach((thumb, index) => {
-                    thumb.classList.toggle('active', index === currentImageIndex);
-                });
-            }
-            
-            // Afficher/masquer les boutons de navigation selon le nombre d'images
-            if (images.length <= 1) {
-                prevBtn.style.display = 'none';
-                nextBtn.style.display = 'none';
-            } else {
-                prevBtn.style.display = 'flex';
-                nextBtn.style.display = 'flex';
-            }
-            
-            // Ajouter un indicateur du nombre d'images
-            const existingCounter = document.querySelector('.image-counter');
-            if (existingCounter) {
-                existingCounter.remove();
-            }
-            
-            if (images.length > 1) {
-                const imageCounter = document.createElement('div');
-                imageCounter.className = 'image-counter';
-                imageCounter.textContent = `${currentImageIndex + 1} / ${images.length}`;
-                document.querySelector('.main-image-container').appendChild(imageCounter);
-                
-                // Mettre à jour le compteur quand on change d'image
-                const updateCounter = () => {
-                    imageCounter.textContent = `${currentImageIndex + 1} / ${images.length}`;
-                };
-                
-                // Redéfinir les événements pour inclure la mise à jour du compteur
-                const originalPrev = prevBtn.onclick;
-                const originalNext = nextBtn.onclick;
-                
-                prevBtn.onclick = () => {
-                    originalPrev();
-                    updateCounter();
-                };
-                
-                nextBtn.onclick = () => {
-                    originalNext();
-                    updateCounter();
-                };
-                
-                // Mettre à jour aussi pour les clics sur miniatures
-                document.querySelectorAll('.thumbnail').forEach((thumb, index) => {
-                    const originalClick = thumb.onclick;
-                    thumb.onclick = () => {
-                        originalClick();
-                        currentImageIndex = index;
-                        updateCounter();
-                    };
-                });
             }
         }
 
@@ -2327,10 +1616,7 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
             const productName = productCard.querySelector('.name').textContent;
             const productPriceText = productCard.querySelector('.price').textContent;
             const productPrice = parseFloat(productPriceText.replace(/[^\d,]/g, '').replace(',', '.'));
-            
-            // CORRECTION: Récupérer l'image depuis l'attribut data
-            const addToCartButton = productCard.querySelector('.add-to-cart');
-            const productImage = addToCartButton.getAttribute('data-product-image');
+            const productImage = productCard.querySelector('img').src;
             
             // Vérifier si le produit est déjà dans la wishlist
             const existingItem = wishlist.find(item => item.id === productId);
@@ -2525,17 +1811,17 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
         }
 
         // Fonction pour ajouter un produit au panier (clic sur le bouton)
-// FONCTION MANQUANTE - À AJOUTER DANS VOTRE CODE
-function addToCart(e) {
-    const button = e.currentTarget;
-    const productId = button.getAttribute('data-product-id');
-    const productName = button.getAttribute('data-product-name');
-    const productPrice = parseFloat(button.getAttribute('data-product-price'));
-    const productImage = button.getAttribute('data-product-image');
-    
-    addToCartFunction(productId, productName, productPrice, productImage);
-    showNotification('Produit ajouté au panier');
-}
+        function addToCart(e) {
+            const button = e.currentTarget;
+            const productId = button.getAttribute('data-product-id');
+            const productName = button.getAttribute('data-product-name');
+            const productPrice = parseFloat(button.getAttribute('data-product-price'));
+            const productImage = button.getAttribute('data-product-image');
+            
+            addToCartFunction(productId, productName, productPrice, productImage);
+            showNotification('Produit ajouté au panier');
+        }
+
         // Fonction pour augmenter la quantité d'un produit
         function increaseQuantity(e) {
             const productId = e.currentTarget.getAttribute('data-id');
@@ -2585,24 +1871,10 @@ function addToCart(e) {
             quickViewModal.classList.remove('active');
             document.body.style.overflow = '';
         }
-        
-        // AJOUT: Fonction pour rediriger vers la page de détails du produit
-        function viewProductDetails() {
-            if (currentProductId) {
-                // Stocker les données du produit dans localStorage
-                const product = allProducts.find(p => p.id === currentProductId);
-                if (product) {
-                    localStorage.setItem('selectedProduct', JSON.stringify(product));
-                    // Rediriger vers la page cart.html
-                    window.location.href = 'cart.html';
-                }
-            } else {
-                showNotification('Erreur: ID du produit non disponible', 'error');
-            }
-        }
+
         // === INITIALISATION AU CHARGEMENT DE LA PAGE ===
         document.addEventListener('DOMContentLoaded', function() {
-            // Charger les produits depuis Firebase ou utiliser les données locales
+            // Charger les produits depuis Firebase
             loadProductsFromFirebase();
             
             // Initialiser l'affichage du panier et de la wishlist
@@ -2622,13 +1894,6 @@ function addToCart(e) {
             document.getElementById('close-wishlist').addEventListener('click', closeWishlist);
             document.getElementById('wishlist-overlay').addEventListener('click', closeWishlist);
             
-            // Écouteurs d'événements pour les filtres desktop
-            document.getElementById('applyPriceFilter').addEventListener('click', function() {
-                currentFilters.priceMin = parseFloat(document.querySelector('.desktop-price-min').value) || 0;
-                currentFilters.priceMax = parseFloat(document.querySelector('.desktop-price-max').value) || 100000;
-                applyFilters();
-            });
-            
             // Écouteurs d'événements pour les filtres mobiles
             document.getElementById('mobileFilterToggle').addEventListener('click', function() {
                 document.getElementById('mobileFiltersMenu').classList.add('active');
@@ -2646,45 +1911,22 @@ function addToCart(e) {
             document.getElementById('filtersOverlay').addEventListener('click', closeMobileFilters);
             
             document.getElementById('mobileFilterApply').addEventListener('click', function() {
-                // Appliquer les filtres de prix
-                currentFilters.priceMin = parseFloat(document.querySelector('.mobile-price-min').value) || 0;
-                currentFilters.priceMax = parseFloat(document.querySelector('.mobile-price-max').value) || 100000;
-                
-                // Appliquer les filtres de marque
-                currentFilters.brands = [];
-                document.querySelectorAll('.mobile-filters-menu input[name="brand"]:checked').forEach(checkbox => {
-                    currentFilters.brands.push(checkbox.value);
-                });
-                
-                // Appliquer les filtres de genre
-                currentFilters.genders = [];
-                document.querySelectorAll('.mobile-filters-menu input[name="gender"]:checked').forEach(checkbox => {
-                    currentFilters.genders.push(checkbox.value);
-                });
-                
-                // Synchroniser avec les filtres desktop
-                document.querySelector('.desktop-price-min').value = currentFilters.priceMin;
-                document.querySelector('.desktop-price-max').value = currentFilters.priceMax;
-                
-                document.querySelectorAll('.shop-filters input[name="brand"]').forEach(checkbox => {
-                    checkbox.checked = currentFilters.brands.includes(checkbox.value);
-                });
-                
-                document.querySelectorAll('.shop-filters input[name="gender"]').forEach(checkbox => {
-                    checkbox.checked = currentFilters.genders.includes(checkbox.value);
-                });
-                
-                applyFilters();
+                console.log('Filtres appliqués');
                 closeMobileFilters();
             });
             
             document.getElementById('mobileFilterReset').addEventListener('click', function() {
-                resetAllFilters();
-                closeMobileFilters();
+                const mobileInputs = document.querySelectorAll('.mobile-filters-menu input');
+                mobileInputs.forEach(input => {
+                    if (input.type === 'checkbox') {
+                        input.checked = false;
+                    } else if (input.type === 'number') {
+                        input.value = input.placeholder === 'Min' ? '0' : '100000';
+                    }
+                });
+                
+                console.log('Filtres réinitialisés');
             });
-            
-            // Écouteur pour le bouton de réinitialisation des filtres
-            document.getElementById('resetFilters').addEventListener('click', resetAllFilters);
             
             // Écouteurs d'événements pour le modal quickview
             document.querySelector('.close-modal-btn').addEventListener('click', closeQuickViewModal);
@@ -2694,9 +1936,6 @@ function addToCart(e) {
                 }
             });
             
-            // AJOUT: Écouteur d'événements pour le bouton "VIEW DETAILS"
-            document.querySelector('.view-details-btn').addEventListener('click', viewProductDetails);
-
             // Écouteurs d'événements pour les boutons plus et moins pour la quantité
             const qtyMinus = document.getElementById('qty-minus');
             const qtyPlus = document.getElementById('qty-plus');
@@ -2717,50 +1956,7 @@ function addToCart(e) {
             }
         });
     </script>
-    <footer class="main-footer">
-        <div class="footer-content">
-            <div class="footer-section contact-info">
-                <div class="logo-container">
-                    <img src="images/footer.jpg" alt="" width="120px" height="50px">
-                </div>
 
-                <ul class="contact-list">
-                    <li>
-                        <span class="icon">📍</span> avenue Suidani Boudjetimelesswatchstore, Alger
-                    </li>
-                    <li>
-                        <span class="icon">📞</span> +213 (0556 774 148)
-                    </li>
-                    <li>
-                        <span class="icon">📧</span> timelesswatch@store.dz
-                    </li>
-                </ul>
-            </div>
-
-            <div class="footer-section quick-links">
-                <h3>LIENS RAPIDES</h3>
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="#">Boutique</a></li>
-                    <li><a href="contact.html">Contactez-nous</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section categories">
-                <h3>CATÉGORIES</h3>
-                <ul>
-                    <li><a href="#">Hommes</a></li>
-                    <li><a href="#">Femmes</a></li>
-                    <li><a href="#">Promotion</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>Copyright © 2025 - TimelessWatchstore Créé par <a href="https://portfolio-o4po.vercel.app">Badridev</a>.</p>
-        </div>
-    </footer>
-    <script src="navbar.js"></script>
-    <script src="prodtuis.js"></script>
 </body>
+
 </html>
